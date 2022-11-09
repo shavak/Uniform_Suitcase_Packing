@@ -1,0 +1,157 @@
+\usepackage{babel}
+\usepackage{csquotes}
+\usepackage[useregional]{datetime2}
+\usepackage[normalem]{ulem}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{upgreek}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage[integrals]{wasysym}
+\usepackage[style=alphabetic]{biblatex}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,filecolor=magenta,urlcolor=cyan,pdfpagemode=FullScreen}
+\urlstyle{same}
+\usepackage[obeyFinal]{todonotes}
+
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Dom}{Dom}
+\DeclareMathOperator{\Codom}{Codom}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\GU}{GU}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\PGU}{PGU}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\AGL}{AGL}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Grp}{Grp}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Bd}{Bd}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\Bern}{Bern}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\prob}{\mathbf{P}}
+\DeclareMathOperator{\expect}{\mathbf{E}}
+\DeclareMathOperator{\Var}{\mathbf{Var}}
+\DeclareMathOperator{\Cov}{\mathbf{Cov}}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\fix}{fix}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\dep}{dep}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\vol}{vol}
+
+\newcommand{\nat}{\ensuremath{\mathbb{N}}}
+\newcommand{\zed}{\ensuremath{\mathbb{Z}}}
+\newcommand{\rat}{\ensuremath{\mathbb{Q}}}
+\newcommand{\real}{\ensuremath{\mathbb{R}}}
+\newcommand{\complex}{\ensuremath{\mathbb{C}}}
+\newcommand{\field}{\ensuremath{\mathbb{F}}}
+\newcommand{\indicator}{\ensuremath{\mathbb{I}}}
+\newcommand{\rie}{\ensuremath{\mathscr{R}}}
+\newcommand{\circlegroup}{\ensuremath{\mathbb{T}}}
+\newcommand{\jacobian}{\ensuremath{\mathbf{J}}}
+\newcommand{\hessian}{\ensuremath{\mathbf{H}}}
+\newcommand{\lowint}{\underline{\int}}
+\newcommand{\upint}{\overline{\int}}
+\newcommand{\mathup}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\ramuno}{\ensuremath{\mathup{i}}}
+\newcommand{\euler}{\ensuremath{\mathup{e}}}
+\newcommand{\dif}{\ensuremath{\;\mathup{d}}}
+\newcommand{\cpi}{\ensuremath{\uppi}}
+\newcommand{\given}{\ensuremath{\left.\middle|\right.}}
+\renewcommand{\vec}{\vectorsym}
+\newcommand{\dotprod}{\cdotp}
+
+\newcommand{\letdash}[1]{$#1$\nobreakdash-\hspace{0pt}}
+\newcommand{\numdash}{\nobreakdash--}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem*{rank-nullity}{The Rank--Nullity Theorem}
+\newtheorem*{cayley-hamilton}{The Cayley--Hamilton Theorem}
+\newtheorem*{cauchy-schwarz}{The Cauchy--Schwarz Inequality}
+\newtheorem*{cramer}{Cramer's Rule}
+\newtheorem*{nested-interval}{The Nested Interval Theorem}
+\newtheorem*{heine-borel}{The Heine--Borel Theorem}
+\newtheorem*{brouwer-fixed-point}{Brouwer's Fixed Point Theorem}
+\newtheorem*{bolzano-weierstrass}{The Bolzano--Weierstrass Theorem}
+\newtheorem*{monotone-sequence}{The Monotone Sequence Theorem}
+\newtheorem*{monotone-convergence}{The Monotone Convergence Theorem}
+\newtheorem*{l-hopital}{L'H\^opital's Rule}
+\newtheorem*{comparison-test}{The Comparison Test}
+\newtheorem*{condensation-test}{Cauchy's Condensation Test}
+\newtheorem*{root-test}{The Root Test}
+\newtheorem*{ratio-test}{d'Alembert's Ratio Test}
+\newtheorem*{integral-test}{The Integral Test}
+\newtheorem*{weierstrass-m}{Weierstrass M-test}
+\newtheorem*{abel-sum}{Abel's Theorem}
+\newtheorem*{evt}{The Extreme-Value Theorem}
+\newtheorem*{epsilon-neighbourhood}{The $\epsilon$-Neighbourhood Theorem}
+\newtheorem*{ivt}{The Intermediate-Value Theorem}
+\newtheorem*{gmvt}{The Generalised Mean-Value Theorem}
+\newtheorem*{mvt}{The Mean-Value Theorem}
+\newtheorem*{rolle}{Rolle's Theorem}
+\newtheorem*{ftoc}{The Fundamental Theorem of Calculus}
+\newtheorem*{chain-rule}{The Chain Rule}
+\newtheorem*{inverse-function}{The Inverse Function Theorem}
+\newtheorem*{caratheodory-extension}{The Carath\'{e}odory Extension Theorem}
+\newtheorem*{fubini}{Fubini's Theorem}
+\newtheorem*{change-of-variable}{Change of Variable}
+\newtheorem*{change-of-variables}{Change of Variables}
+\newtheorem*{integ-by-parts}{Integration by Parts}
+\newtheorem*{taylor}{Taylor's Theorem}
+\newtheorem*{total-probability}{Law of Total Probability}
+\newtheorem*{total-expectation}{Law of Total Expectation}
+\newtheorem*{total-variance}{Law of Total Variance}
+\newtheorem*{bayes}{Bayes' Theorem}
+\newtheorem*{probability-integral-transform}{The Probability Integral Transform}
+\newtheorem*{wna}{Weak No-arbitrage Condition}
+\newtheorem*{sna}{Strong No-arbitrage Condition}
+\newtheorem*{first-derivative-test}{The First Derivative Test}
+\newtheorem*{second-derivative-test}{The Second Derivative Test}
+\newtheorem*{chebychev}{Chebychev's Inequality}
+\newtheorem*{law-of-averages}{The Law of Averages}
+\newtheorem*{weak-lln}{The Weak Law of Large Numbers}
+\newtheorem*{strong-lln}{The Strong Law of Large Numbers}
+\newtheorem*{levy-continuity}{L\'{e}vy's Continuity Theorem}
+\newtheorem*{central-limit}{The Central Limit Theorem}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{xca}[theorem]{Exercise}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem*{problem*}{Problem}
+
+\theoremstyle{remark}
+\newtheorem{rmk}[theorem]{Remark}
+\newtheorem{eg}[theorem]{Example}
+
+\newenvironment{soln}{\begin{proof}[Solution]}{\end{proof}}

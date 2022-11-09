@@ -1,0 +1,88 @@
+\documentclass[british,a4paper]{article}
+
+\input{preamble}
+
+\title{Uniform Suitcase Packing}
+\author{Shavak Sinanan\thanks{E-mail: \href{mailto:shavak.sinanan@linacre.oxon.org}{shavak.sinanan@linacre.oxon.org}, Website: \url{https://shavaksinanan.com}}}
+\date{\today}
+
+%\addbibresource{mathematics.bib}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem}
+The weights of \(n\) items are \(X_1, \dotsc, X_n\) assumed independent with each \(X_i\) taking distribution \(\Unif\)(0, 1).
+
+Mary and John each have a suitcase which can carry total weight \(1\) and use different packing methods. Mary packs in her suitcase only the heaviest item. John packs the items in order \(1, 2, \dotsc, n\), packing each item only if it can fit in the remaining space.
+
+Whose packing method is more likely to produce a heavier suitcase?
+
+\section*{Solution}
+
+Answer: \underline{Mary's packing method is more likely to produce a heavier suitcase}.
+
+To show this, argue as follows.
+
+Let \(Y_n = \sum_{k = 1}^n X_k\) and let \(y \in [0, 1]\). One has
+\[
+\prob(Y_n \leq y) = \frac{1}{n!}y^n\text{,}
+\]
+and so the p.d.f.\ of \(Y_n\) is
+\[
+\frac{1}{(n - 1)!}y^{n - 1}
+\]
+for \(y \in (0, 1)\).
+
+To prove this, first note that the result clearly holds for \(n = 1\). For \(n > 1\) one has, by induction,
+\begin{equation*}
+    \begin{split}
+        \prob(Y_n \leq y) &= \prob(Y_{n - 1} + X_n \leq y)\\
+        &= \int_0^y\int_0^{y - t} \frac{1}{(n - 2)!}t^{n - 2} \dif x \dif t\\
+        &= \frac{1}{(n - 2)!} \int_0^y t^{n - 2}(y - t) \dif t\\
+        &= \frac{1}{n!}y^n
+    \end{split}
+\end{equation*}
+Differentiate to obtain the desired expression for the p.d.f.
+
+Let \(k > 1\). Using the expression above one computes
+\begin{equation*}
+    \begin{split}
+        \prob(Y_{k - 1} \leq y \text{ and } y < Y_k < 1) &= \int_0^y \int_{y - t}^{1 - t} \frac{1}{(k - 2)!}t^{k - 2} \dif x \dif t\\
+        &= \frac{1}{(k - 1)!}(1- y)y^{k - 1}
+    \end{split}
+\end{equation*}
+
+Let \(J_n\) be the random variable representing the weight of John's suitcase at the end of the packing exercise. Let \(y \in (0, 1)\). One has
+\begin{equation*}
+    \begin{split}
+        P(J_n > y) &= \sum_{k = 1}^n \prob(Y_{k - 1} \leq y \text{ and } y < Y_k < 1)\\
+        &= \sum_{k = 1}^n \frac{1}{(k - 1)!}(1- y)y^{k - 1}
+    \end{split}
+\end{equation*}
+
+Let \(U\) be a \(\Unif\)(0, 1) random variable, independent of each \(X_k\). One has
+\begin{equation*}
+    \begin{split}
+        P(J_n > U) &= \int_0^1 \sum_{k = 1}^n \frac{1}{(k - 1)!}(1- y)y^{k - 1} \dif y\\
+        &= \sum_{k = 1}^n \left\{ \frac{1}{(k - 1)!}\int_0^1 (1- y)y^{k - 1} \dif y\right\}\\
+        &= \sum_{k = 1}^n \frac{1}{(k + 1)!}\\
+        &< \euler - 2
+    \end{split}
+\end{equation*}
+
+Finally, let \(M_n\) be the random variable representing the weight of Mary's suitcase at the end of the packing exercise. By direct computation, it can be seen that
+\[
+\prob(J_1 > M_1) = \frac{1}{2}
+\]
+and
+\[
+\prob(J_2 > M_2) = \frac{4}{9}\text{.}
+\]
+In general,
+\[
+\prob(J_n > M_n) = [\prob(J_n > U)]^n < (\euler - 2)^n < \frac{1}{2}\text{;}
+\]
+the final inequality holding for \(n \geq 3\). 
+\end{document}
