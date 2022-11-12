@@ -1,6 +1,8 @@
 \documentclass[british,a4paper]{article}
 
 \input{preamble}
+\renewcommand\thesection{\Alph{section}}
+\titleformat{\section}{\large\bfseries}{}{0pt}{#1\ \thesection}
 
 \title{Uniform Suitcase Packing}
 \author{Shavak Sinanan\thanks{E-mail: \href{mailto:shavak.sinanan@linacre.oxon.org}{shavak.sinanan@linacre.oxon.org}, Website: \url{https://shavaksinanan.com}}}
@@ -12,16 +14,16 @@
 
 \maketitle
 
-\section*{Problem}
+\section{Problem}\label{sec:problem-A}
 The weights of \(n\) items are \(X_1, \dotsc, X_n\) assumed independent with each \(X_i\) taking distribution \(\Unif\)(0, 1).
 
-Mary and John each have a suitcase which can carry total weight \(1\) and use different packing methods. Mary packs in her suitcase only the heaviest item. John packs the items in order \(1, 2, \dotsc, n\), packing each item only if it can fit in the remaining space.
+Mary and John each have a suitcase which can carry total weight \(1\) and use different packing methods. Mary packs in her suitcase only the heaviest item. John attempts to pack the items in order \(1, 2, \dotsc, n\), stopping when he encounters an item that cannot fit into his suitcase.
 
 Whose packing method is more likely to produce a heavier suitcase?
 
-\section*{Solution}
+\subsection*{Solution}
 
-Answer: \underline{Mary's packing method is more likely to produce a heavier suitcase}.
+Answer: \uline{Mary's packing method is more likely to produce a heavier suitcase}.
 
 To show this, argue as follows.
 
@@ -85,4 +87,31 @@ In general,
 \prob(J_n > M_n) = [\prob(J_n > U)]^n < (\euler - 2)^n < \frac{1}{2}\text{;}
 \]
 the final inequality holding for \(n \geq 3\). 
+
+\section{Problem}
+The weights of \(n\) items are \(X_1, \dotsc, X_n\) assumed independent with each \(X_i\) taking distribution \(\Unif\)(0, 1).
+
+Mary and John each have a suitcase which can carry total weight \(1\) and use different packing methods. Mary packs in her suitcase only the heaviest item. John attempts to pack the items in order \(1, 2, \dotsc, n\), packing each item if and only if it can fit in the remaining space.
+
+Whose packing method is more likely to produce a heavier suitcase?
+
+\subsection*{Solution}
+
+Answer: \uline{Perhaps suprisingly, both Mary and John have an equal chance of having the heavier suitcase}.
+
+To show this, one solves a slightly more general problem.
+
+Suppose that the capacity of John's suitcase is \(w \in (0, 1]\), and denote by \(J_n(w)\) the random variable which represents the weight of John's suitcase after his packing procedure. One has
+\[
+\prob(J_n(w) \leq u) =
+\begin{cases}
+1 & u > w\\
+(1 - w + u)^n & 0 \leq u \leq w\\
+0 & u < 0
+\end{cases}
+\]
+
+Noting that, after the first item is examined, the random variable to be measured is the outcome of an experiment with one fewer item and a suitcase of capacity less than or equal to the initial capacity, this can be proven by induction using techniques similar to those in the solution of Problem~\ref{sec:problem-A}. \emph{Warning: in general, the distribution function of \(J_n(w)\)is not left-continuous at \(u = 0\), so some care is required when manipulating the relevant integral.}
+
+Taking \(w = 1\) in the expression for \(\prob(J_n(w) \leq u)\) shows that the weight of items in John's suitcase is distributionally identical to the the weight of items in Mary's suitcase.
 \end{document}
